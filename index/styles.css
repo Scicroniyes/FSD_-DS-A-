@@ -1,0 +1,193 @@
+/* Main stylesheet (no inline CSS) */
+:root{
+  --header-height: 72px;
+  --accent: #ffffff;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #fff;
+  background:#000;
+}
+.container{max-width:1180px;margin:0 auto;padding:0 18px}
+
+.site-header{
+  position:fixed;top:0;left:0;right:0;height:var(--header-height);background:#0b0b0b;z-index:60;box-shadow:0 1px 0 rgba(255,255,255,0.03);overflow:visible;
+}
+.header-inner{display:flex;align-items:center;justify-content:center;height:100%}
+/* Brand placed flush left of the viewport */
+.brand{position:absolute;left:18px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:12px;z-index:80}
+.header-logo{height:56px;width:auto;display:block}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-title{font-family:'Merriweather',serif;font-weight:900;color:var(--accent);font-size:26px}
+.brand-sub{font-family:'Montserrat',sans-serif;font-size:12px;color:rgba(255,255,255,0.92);margin-top:2px}
+
+/* When viewport is small, keep brand within the header padding */
+@media (max-width:760px){
+  .brand{left:12px}
+  .header-logo{height:44px}
+  .brand-title{font-size:20px}
+}
+
+.main-nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.main-nav a{color:var(--accent);text-decoration:none;font-weight:600;padding:12px 0;display:inline-block}
+.main-nav a:hover{opacity:0.85}
+
+/* Hero section using the provided background image link (file URI). */
+.hero{
+  display:flex;align-items:center;justify-content:center;
+  min-height:calc(100vh - var(--header-height));
+  margin-top:var(--header-height);
+  position:relative;
+  background-image: url("https://www.abes.ac.in/assets/2.jpg");
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  text-align:center;
+}
+
+.hero-overlay{
+  position:absolute;left:0;right:0;top:0;bottom:0;background:linear-gradient(rgba(2,2,2,0.55), rgba(2,2,2,0.55));
+}
+
+.hero-content{position:relative;z-index:2;max-width:980px;padding:60px 20px}
+.hero h1{font-family:'Merriweather', serif;font-size:120px;line-height:0.92;margin:0 0 18px;color:#fff;text-shadow:0 6px 18px rgba(0,0,0,0.6);font-weight:700}
+.hero p{font-size:18px;color:rgba(255,255,255,0.95);margin:0;line-height:1.6}
+
+/* Responsive adjustments */
+@media (max-width:1100px){
+  .hero h1{font-size:84px}
+}
+@media (max-width:760px){
+  .main-nav ul{display:none}
+  .hero h1{font-size:44px}
+  .hero p{font-size:16px}
+  .container{padding:0 14px}
+}
+
+/* Footer styles */
+.site-footer{
+  background:#0f0f0f;
+  color:rgba(255,255,255,0.95);
+  padding:48px 0 26px;
+  margin-top:40px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr 320px 1fr;
+  gap:40px;
+  align-items:start;
+  padding:0 18px 30px;
+}
+.footer-col h3{margin:0 0 14px;font-size:22px;font-weight:700;font-family:'Merriweather',serif}
+.footer-col ul{list-style:none;padding:0;margin:0}
+.footer-col li{margin:10px 0}
+.footer-col a{color:rgba(255,255,255,0.9);text-decoration:none;font-size:15px}
+.footer-col a:hover{text-decoration:underline}
+.footer-center address{font-style:normal;line-height:1.7;color:rgba(255,255,255,0.9)}
+
+.socials{margin-top:14px;display:flex;gap:10px;align-items:center;justify-content:center}
+.social{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);color:#fff;text-decoration:none;font-weight:700}
+
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:18px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.footer-brand .logo-mark{font-family:'Merriweather',serif;font-size:36px;font-weight:900;color:#fff}
+.footer-bottom p{margin:0;color:rgba(255,255,255,0.85);font-size:14px}
+
+/* Responsive footer adjustments */
+@media (max-width:900px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px;padding:0 16px}
+  .footer-center{order:2}
+}
+@media (max-width:560px){
+  .footer-grid{grid-template-columns:1fr;gap:20px;padding:0 12px}
+  .footer-center{order:0}
+  .socials{justify-content:flex-start}
+}
+
+/* "ABES at a Glance" section styles and background-image animation */
+.glance{
+  position:relative;
+  padding:80px 0;
+  background:#f5f5f5;
+  color:#222;
+  overflow:hidden;
+}
+.glance .glance-bg{
+  position:absolute;
+  left:0;right:0;top:0;bottom:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0;
+  transform:translateY(30px) scale(1.02);
+  transition:transform .9s cubic-bezier(.2,.9,.2,1),opacity .9s ease;
+  z-index:1;
+  filter:brightness(.98) saturate(.98);
+}
+.glance .glance-bg.in-view{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.glance-content{position:relative;z-index:2;padding:40px 18px}
+.glance-row{display:flex;gap:40px;align-items:flex-start}
+.glance-left{flex:1}
+.glance-left h2{font-family:'Merriweather',serif;font-size:48px;color:#222;margin:0 0 10px}
+.glance-left p{max-width:640px;color:#333}
+.glance-stats{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.stat h3{color:#9b1d2b;font-size:28px;margin:0 0 6px;font-family:'Merriweather',serif}
+.stat p{margin:0;color:#111;font-weight:700}
+@media (max-width:900px){
+  .glance-row{flex-direction:column}
+  .glance-stats{grid-template-columns:1fr}
+}
+.footer-logo{height:56px}
+
+/* Scrolling ticker (marquee) */
+.ticker-wrap{
+  background:#fff;
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  overflow:hidden;
+}
+.ticker{
+  display:flex;
+  gap:60px;
+  align-items:center;
+  white-space:nowrap;
+  min-height:56px;
+  padding:6px 0;
+  transform:translate3d(0,0,0);
+  /* move left continuously — duplicated items ensure seamless loop */
+  animation: marquee 20s linear infinite;
+}
+.ticker__item{
+  color:#9b1d2b;
+  font-family:'Merriweather', serif;
+  font-size:22px;
+  font-weight:700;
+  padding-left:28px;
+}
+
+@keyframes marquee{
+  0%{transform:translateX(0%)}
+  100%{transform:translateX(-50%)}
+}
+
+@media (max-width:900px){
+  .ticker__item{font-size:18px}
+}
+@media (max-width:480px){
+  .ticker__item{font-size:15px}
+}
+
+/* Reveal animations for ABES at a Glance: elements appear line-by-line */
+.glance .revealable{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1);
+  will-change:opacity,transform;
+}
+.glance .revealable.revealed{
+  opacity:1;
+  transform:translateY(0);
+}
