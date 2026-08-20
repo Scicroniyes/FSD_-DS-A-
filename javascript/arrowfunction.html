@@ -7,20 +7,14 @@
 </head>
 <body>
     <script>
-        // Function definition
-        function myFunction(a,b) {
-            
-            let sum = a + b;
-            // document.write("The sum of " + a + " and " + b + " is: " + sum);
-            return sum;
+        //code (arrow function)
+        const add = (a, b) => {
+            return a + b;
         }
 
         let a = prompt("Enter the first number:");
         let b = prompt("Enter the second number:");
-       document.write(myFunction(parseInt(a), parseInt(b)));
-        
-
-
+        document.write("The sum of " + a + " and " + b + " is: " + add(parseInt(a), parseInt(b)));
     </script>
 </body>
 </html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let carCost = 750;
+let airplaneCost = 5000;
+let helicopterCost = 10000;
+
+let setascar=5
+const car = () => {
+    return {
+        cost: carCost,
+        brand: "Toyota",
+        name: "Corolla",
+        sets:setascar
+    };
+};
+
+let seatairplane=200
+const airplane = () => {
+    return {
+        cost: airplaneCost,
+        brand: "Boeing",
+        name: "Boeing 747",
+        seats:seatairplane
+    };
+};
+let seathelicopter=6
+const helicopter = () => {
+    return {
+        cost: helicopterCost,
+        brand: "US-Army",
+        name: "Apache Helicopter",
+        seats:seathelicopter
+    };
+};
+
+let setcar = (num) => {
+    carCost = num;
+    return carCost;
+};
+
+let setairplane = (num) => {
+    airplaneCost = num;
+    return airplaneCost;
+};
+let sethelicopter = (num) => {
+    helicopterCost = num;
+    return helicopterCost;
+}
+
+document.write("The cost of car is: " + setcar(15000) + "<br>");
+
+document.write("The cost of helicopter is: " + helicopter().cost + "<br>");
+
+document.write("The cost of car after update is: " + car().cost + "<br>");
+
+document.write("The  selsect the vechieel to travel <br>");
+
+    let vechile=prompt("Enter the vechile to select ");
+    if(vechile=="car"){
+          document.write(" the details about the car is "+{name: car().name, brand: car().brand}+"<br>");
+          let seatbookCar=prompt("Enter the number of seats to book in the car");
+          if( car().sets>=seatbookCar){
+               setcar(car.seats-seatbookCar);
+               document.write("The number of seats left in the car is: " + car().sets + "<br>");
+
+               let cost_seat_car=seatbookCar*car().cost;
+               document.write("The cost of booking " + seatbookCar + " seats in the car is: " + cost_seat_car + "<br>");
+          }
+               
+        }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //create object
+        const student={
+            name: "sidharth",
+            age: 20,
+            grade: "A",
+            class: "B.tech",
+            school: "AKTU University"
+        }
+
+    //    document.write('<pre>' + JSON.stringify(student, null, 2) + '</pre>');
+
+    for(let key in student){
+        document.write(key + ": " + student[key] + "<br>");
+    }
+    </script>
+</body>
+</html>

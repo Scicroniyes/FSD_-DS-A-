@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujal Kirana Shop</title>
+</head>
+<body>
+    <div style="background-color: lightblue; padding: 20px;">
+        <h1 style="text-align: center;"><b>Sujal Kirana shop</b></h1>
+    </div>
+    
+    <br>
+    <input type="text" id="items" placeholder="Enter item name (e.g., tea)"> <br><br>
+    <input type="number" id="quantity" placeholder="Enter quantity"> <br><br>
+    
+    <!-- Action Buttons -->
+    <button onclick="addItems()">Add Item</button>
+    <button onclick="calculateTotal()">Calculate Total</button>
+
+    <!-- Cart & Total Displays -->
+    <h4>Your Cart:</h4>
+    <div id="cart"><i>No items added yet.</i></div>
+    <h3 id="total-display"></h3>
+
+    <hr>
+
+    <script>
+        let itemList = [];
+
+        const items = {
+            tea: [10, "per 10gm pack"],
+            coffee: [20, "per 100ml"],
+            milk: [30, "per liter"],
+            rice: [100, "per kg"],
+            dal: [70, "per kg"],
+            kurkure: [20, "per packet"],
+        };
+
+        // Display shop menu on initial page load
+        document.write("<h3>Items List</h3>"); 
+        for (let key in items) {
+            document.write(key + ": ₹" + items[key][0] + " " + items[key][1] + "<br>");
+        }
+
+        function addItems() {
+            // .toLowerCase() handles input like "Tea" or "TEA" so it matches keys in `items`
+            const item = document.getElementById("items").value.trim().toLowerCase();
+            const quantity = Number(document.getElementById("quantity").value);
+
+            if (!item || !quantity) {
+                alert("Please enter a valid item and quantity!");
+                return;
+            }
+
+            itemList.push({ item, quantity });
+
+            // Display added item on screen
+            const cartDiv = document.getElementById("cart");
+            if (itemList.length === 1) cartDiv.innerHTML = ""; // Clear initial text
+            cartDiv.innerHTML += `<div>• ${quantity}x ${item}</div>`;
+
+            // Reset inputs
+            document.getElementById("items").value = "";
+            document.getElementById("quantity").value = "";
+        }
+
+        function calculateTotal() {
+            let total = 0;
+
+            for (let i = 0; i < itemList.length; i++) {
+                const item = itemList[i].item;
+                const quantity = itemList[i].quantity;
+
+                if (items[item]) {
+                    total += items[item][0] * quantity;
+                }
+            }
+
+            // Update screen element instead of document.write
+            document.getElementById("total-display").innerText = "Total Cost: ₹" + total;
+        }
+    </script>
+</body>
+</html>

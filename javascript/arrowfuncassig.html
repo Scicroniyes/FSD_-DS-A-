@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const car=()=>{
+      const content={   cost: 10000,
+        brand: "Toyota",
+        name: "Corolla"
+      }
+    return {
+       ...content
+    };
+    
+}
+const airplane=()=>{
+    const content={   cost: 500000,
+        brand: "Boeing",
+        name: "boight 747"
+    }
+    return {
+       ...content
+    };
+}
+ const helicopter=()=>{
+     const content={   cost: 1000000,
+        brand: "US-Army",
+        name: "apache helicopter"
+    }
+    return {
+        ...content
+    }
+}
+
+document.write("The cost of car is: " + car().cost + "<br>");
+document.write("The cost of airplane is: " + airplane().cost + "<br>");
+document.write("The cost of helicopter is: " + helicopter().cost + "<br>");
+            
+    </script>
+    
+</body>
+</html>
+
+
+/*homework
+
+write a program which ask what do you need the information abbout
+
+
+
+
+*/
