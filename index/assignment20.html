@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const students=[
+            { name: "John Doe", course: "B.tech", age: 20, major: "Computer Science", gpa: 3.8 },
+            { name: "Jane Smith", course: "MCA", age: 22, major: "Mathematics", gpa: 3.9 },
+            { name: "Alice Johnson", course: "M.tech", age: 21, major: "Physics", gpa: 3.7 },
+            { name: "Bob Brown", course: "BCA", age: 23, major: "Chemistry", gpa: 3.6 },
+            { name: "Charlie Davis", course: "B.tech", age: 24, major: "Biology", gpa: 3.5 },
+            {name: "David Wilson", course: "MCA", age: 25, major: "Economics", gpa: 3.4 },
+            { name: "Eva Martinez", course: "M.tech", age: 26, major: "History", gpa: 3.3 },
+            { name: "Frank Thomas", course: "BCA", age: 27, major: "Philosophy", gpa: 3.2 },
+            { name: "Grace Lee", course: "B.tech", age: 28, major: "Sociology", gpa: 3.1 },
+            { name: "Henry White", course: "MCA", age: 29, major: "Political Science", gpa: 3.0 }
+        ];
+        document.getElementById("branch")
+
+ 
+        fstudents= students.filter((student) => student.course ==="B.tech");
+        document.write("<pre>");
+        document.write("fstudents==",JSON.stringify(fstudents,null,2));
+
+    </script>
+    
+</body>
+</html>
